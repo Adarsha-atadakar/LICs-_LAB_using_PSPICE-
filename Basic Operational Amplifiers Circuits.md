@@ -1,137 +1,207 @@
-# Experiment 05: Basic Operational Amplifier Circuits
-
-**Course:** LIC BEC456B  
-**Institution:** The National Institute of Engineering, Mysuru  
-**Tool Used:** LTspice  
-**Op-Amp Used:** uA741  
-
----
+# BASIC OPERATIONAL AMPLIFIER CIRCUITS
 
 ## Aim
 
 To design and analyze various operational amplifier circuits:
 
-1. Zero Crossing Detector (ZCD)  
+1. Zero Crossing Detector (ZCD)
+ - Inverting ZCD
+ - Non - Inverting ZCD
 2. Comparator  
+ - Inverting Comparator
+ - Non-Inverting Comparator 
 3. Inverting Amplifier  
 4. Non-Inverting Amplifier  
 5. Voltage Follower  
 
----
+
 
 ## Components Used
 
 | Component | Specification |
 |----------|--------------|
 | Op-Amp | uA741 |
-| Resistors | 1kΩ, 10kΩ (typical) |
+| Resistors | 1kΩ, 500Ω (typical) |
 | Power Supply | ±15 V |
 | Input Signal | Sinusoidal |
-| Simulation Tool | LTspice |
+| Simulation Tool |Tina-TI |
 
----
+
 
 ## Theory
 
-According to the lab sheet :contentReference[oaicite:0]{index=0}, the uA741 op-amp consists of:
 
-- Two input terminals:
-  - Inverting input (−)
-  - Non-inverting input (+)
-- One output terminal
-
-The op-amp amplifies the **difference between the two input voltages**.
-
----
 
 # A) Zero Crossing Detector (ZCD)
-
-## Principle
 
 A Zero Crossing Detector compares the input signal with **0V reference**.
 
 - If input > 0 → Output = +Vsat  
 - If input < 0 → Output = −Vsat  
 
----
 
-## Types
 
-1. Inverting ZCD  
-2. Non-Inverting ZCD  
+## Types of ZCD
 
----
+# 1. Inverting Zero Crossing Detector
 
 ## Circuit Description
+- Input is applied to **inverting terminal (−)**
+- Non-inverting terminal is grounded (0V)
 
-- Reference voltage = 0V  
-- Input = sinusoidal signal  
-- No feedback → operates in **open-loop (comparator mode)**  
 
----
+## Circuit Diagram 
+
+
+<img width="1272" height="753" alt="inverting zcd ckt" src="https://github.com/user-attachments/assets/9130bb74-f10f-4906-873e-98e2167e0d47" />
+
+
+## Operation
+
 
 ## Input
 
-\[
-V_{in} = 5\sin(2000\pi t)
-\]
+Vin = 5 sin(2000 pi t)
 
----
 
-## Output Behavior
+
+
+| Condition | Output |
+|----------|--------|
+| Vin > 0 | −13 V |
+| Vin < 0 | +13 V |
+
+
+## Output Waveform 
+
+
+<img width="1918" height="876" alt="inverting zcd graph" src="https://github.com/user-attachments/assets/a7ceb40f-a635-49ea-93f6-18454469df33" />
+
+
+
+## Observation
+- Output is inverted square wave
+- 180° phase shift from input
+
+
+
+# 2. Non-Inverting Zero Crossing Detector
+
+## Circuit Description
+- Input is applied to **non-inverting terminal (+)**
+- Inverting terminal is grounded (0V)
+
+
+## Circuit Diagram 
+
+
+<img width="1026" height="658" alt="non inverting ZCD ckt" src="https://github.com/user-attachments/assets/14cd5d11-0fe4-4274-932f-a4eef07ac89b" />
+
+
+
+## Operation
+
+
+## Input
+
+Vin = 5 sin(2000 pi t)
 
 | Condition | Output |
 |----------|--------|
 | Vin > 0 | +13 V |
 | Vin < 0 | −13 V |
 
----
+## Output Waveform 
+
+
+
+<img width="1918" height="872" alt="non inverting ZCD graph " src="https://github.com/user-attachments/assets/e74ba22e-053d-477b-8822-92d815da8aef" />
+
+
+
 
 ## Observation
+- Output is in phase with input
+- Clean square wave generation
 
-- Output is a **square wave**
-- Switching occurs at **zero crossings**
-- Duty cycle = **50%**
 
----
 
 ## Inference
 
 - ZCD converts analog sine wave into digital signal  
 - Useful in frequency measurement and waveform shaping  
 
----
+
 
 # B) Comparator
+
+
 
 ## Principle
 
 A comparator compares input voltage with a **reference voltage (Vref ≠ 0)**.
 
----
 
-## Case Study
+## Types of Comparator
 
-### Given:
-- \( V_{ref} = -2.5V \)  
-- \( V_{in} = 5\sin(2000\pi t) \)
+# 1. Inverting Comparator
 
----
+## Circuit Description
+- Input applied to **inverting terminal (−)**
+- Reference voltage applied to **non-inverting terminal (+)**
 
-## Operation (Non-Inverting Comparator)
+## Circuit Diagram 
+
+<img width="1175" height="727" alt="inverting comparator op amp ckt" src="https://github.com/user-attachments/assets/bcb6c257-9c7b-4b6b-8df5-1c5255acdb5e" />
+
+
+## Operation
 
 | Condition | Output |
 |----------|--------|
-| Vin > -2.5V | +13 V |
-| Vin < -2.5V | −13 V |
+| Vin > Vref | −13 V |
+| Vin < Vref | +13 V |
+
+## Output Waveform 
+
+<img width="1918" height="875" alt="inverting comparator graph" src="https://github.com/user-attachments/assets/dff3a46f-d898-4c67-bd57-cd368b3c00f4" />
+
+
+## Observation
+- Output is inverted with respect to input
+- Switching occurs at Vref
 
 ---
 
-## Observations
+# 2. Non-Inverting Comparator
 
-- Output is a **square wave**
-- Duty cycle is **not 50%**
-- Output stays HIGH most of the time
+## Circuit Description
+- Input applied to **non-inverting terminal (+)**
+- Reference voltage applied to **inverting terminal (−)**
+
+
+## Circuit Diagram 
+
+<img width="1152" height="718" alt="non inverting comparator ckt" src="https://github.com/user-attachments/assets/1a1b508f-4aee-4aee-b5bc-b7fa26091398" />
+
+
+## Operation
+
+| Condition | Output |
+|----------|--------|
+| Vin > Vref | +13 V |
+| Vin < Vref | −13 V |
+
+## Output Waveform 
+
+
+<img width="1916" height="882" alt="non inverting comparator graph " src="https://github.com/user-attachments/assets/6fcfef52-8eb5-4717-b82f-8a95bc9cb082" />
+
+
+
+## Observation
+- Output follows input polarity
+- Used for level detection
 
 ---
 
@@ -144,20 +214,33 @@ A comparator compares input voltage with a **reference voltage (Vref ≠ 0)**.
 
 # C) Inverting Amplifier
 
-## Circuit Description
+## Circuit Description 
 
 - Input applied to **inverting terminal**
-- Non-inverting terminal grounded  
+- Non-inverting terminal grounded
+
+## Circuit Diagram 
+
+
+<img width="963" height="667" alt="inverting ckt" src="https://github.com/user-attachments/assets/c58ad6d5-7251-4dd4-818a-8b8f64422b7e" />
+
 
 ---
 
 ## Gain Formula
 
-\[
-A_v = \frac{V_{out}}{V_{in}} = -\frac{R_f}{R_1}
-\]
+
+Av = Vout/Vin = -R_f/R_1
+
 
 ---
+
+## Output Waveform
+
+
+<img width="1918" height="863" alt="inverting graph" src="https://github.com/user-attachments/assets/e4f9fd27-7af2-4590-a0fe-9c634c3eecd1" />
+
+
 
 ## Observations
 
@@ -180,13 +263,27 @@ A_v = \frac{V_{out}}{V_{in}} = -\frac{R_f}{R_1}
 - Input applied to **non-inverting terminal**
 - Feedback network used  
 
+
+## Circuit Diagram 
+
+
+<img width="1041" height="695" alt="non inverting ckt" src="https://github.com/user-attachments/assets/d50e9f91-5fec-497a-a327-b6f34f07728c" />
+
+
 ---
 
 ## Gain Formula
 
-\[
-A_v = 1 + \frac{R_f}{R_1}
-\]
+
+A_v = 1 + (R_f/R_1)
+
+
+
+## Output Waveform
+
+
+<img width="1916" height="866" alt="non inverting graph" src="https://github.com/user-attachments/assets/7cb5624a-3ca7-4587-b735-da1144e2744d" />
+
 
 ---
 
@@ -205,14 +302,21 @@ A_v = 1 + \frac{R_f}{R_1}
 
 # E) Voltage Follower (Buffer)
 
+## Circuit Diagram 
+
+<img width="856" height="658" alt="Voltage follower ckt " src="https://github.com/user-attachments/assets/74bbe24c-1d5b-456c-bebf-cc75648ff55b" />
+
+
+## Output Waveform
+
+<img width="1918" height="853" alt="Voltage follower graph " src="https://github.com/user-attachments/assets/71067e44-9102-47bf-962b-8ffabacdfc1e" />
+
 ## Principle
 
 - Special case of non-inverting amplifier  
 - Gain = 1  
 
-\[
-A_v = 1
-\]
+Av = 1
 
 ---
 
@@ -234,9 +338,9 @@ A_v = 1
 
 ## Input Signal
 
-\[
-V_{in} = 5\sin(2000\pi t)
-\]
+
+Vin = 5 sin(2000 pi t)
+
 
 - Frequency = 1 kHz  
 - Amplitude = 5 V  
@@ -245,17 +349,14 @@ V_{in} = 5\sin(2000\pi t)
 
 ## Supply Voltages
 
-- \( V_{CC} = +15V \)  
-- \( V_{EE} = -15V \)  
+-  V_{CC} = +15V   
+-  V_{EE} = -15V  
 
 ---
 
 ## Practical Observation
 
-- Output saturation observed at:
-  \[
-  \approx \pm 13V
-  \]
+- Output saturation observed at: 13 V
 
 ---
 
@@ -266,20 +367,18 @@ V_{in} = 5\sin(2000\pi t)
 
 ---
 
-# Results
+## Results
 
-### 1. ZCD Output
-- Square wave  
-- 50% duty cycle  
+## 1. ZCD Output
+- Square wave   
 
-### 2. Comparator Output
+## 2. Comparator Output
 - Asymmetric square wave  
-- Duty cycle depends on Vref  
-
-### 3. Inverting Amplifier
+ 
+## 3. Inverting Amplifier
 - Output inverted  
 
-### 4. Non-Inverting Amplifier
+## 4. Non-Inverting Amplifier
 - Output in phase  
 
 ### 5. Voltage Follower
@@ -287,7 +386,7 @@ V_{in} = 5\sin(2000\pi t)
 
 ---
 
-# Observations Table
+## Observations Table
 
 | Circuit | Key Feature | Output |
 |--------|------------|--------|
@@ -299,7 +398,7 @@ V_{in} = 5\sin(2000\pi t)
 
 ---
 
-# Overall Inferences
+## Overall Inferences
 
 1. Op-amp works as comparator in open-loop mode  
 2. ZCD detects zero crossings accurately  
@@ -310,7 +409,7 @@ V_{in} = 5\sin(2000\pi t)
 
 ---
 
-# Conclusion
+## Conclusion
 
 The experiment successfully demonstrated the operation of various op-amp configurations using the uA741 IC.
 
