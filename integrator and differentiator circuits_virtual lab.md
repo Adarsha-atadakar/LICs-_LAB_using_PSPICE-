@@ -63,57 +63,33 @@ The differentiator acts as a **high-pass filter**. At high frequencies it become
 
 ---
 
-### DESIGN
-
-#### Design of Integrator
-
-Given input frequency: **f = 1 kHz**
-
-Unity gain frequency condition:
-
-$$f = \frac{1}{2\pi R_1 C}$$
-
-Let **C = 0.01 µF**, then:
-
-$$R_1 = \frac{1}{2\pi \times 1000 \times 0.01 \times 10^{-6}} = 15.9 \, k\Omega \approx \mathbf{15 \, k\Omega \text{ (standard)}}$$
-
-The resistor $R_2$ attenuates low-frequency signals and DC offset. Select $R_2 \geq 10 \times R_1$:
-
-$$\mathbf{R_2 = 470 \, k\Omega}$$
-
----
-
-#### Design of Differentiator
-
-Given operating frequency: **f = 1 kHz**
-
-$$f = \frac{1}{2\pi R_f C}$$
-
-Let **C = 0.01 µF**, then:
-
-$$R_f = \frac{1}{2\pi \times 1000 \times 0.01 \times 10^{-6}} = 15.9 \, k\Omega \approx \mathbf{15 \, k\Omega \text{ (standard)}}$$
-
----
 
 ### CIRCUIT DIAGRAMS
 
-#### Fig. 3 – Integrator Circuit (LM741)
+####  Integrator Circuit 
 
-> _[Insert circuit diagram of Op-Amp Integrator here — R1 = 15 kΩ, R2 = 470 kΩ, C = 0.01 µF, ±12V supply]_
+###### Therotical 
+
+<img width="582" height="237" alt="image" src="https://github.com/user-attachments/assets/3a0da8a0-6601-469a-b8b1-ccd493e346c2" />
+
+###### Simulator
+
+<img width="531" height="382" alt="ckt for int" src="https://github.com/user-attachments/assets/c47b2a65-a88c-47c7-af87-42981683b2ba" />
+
+---
+
+#### Differentiator Circuit 
+
+###### Therotical 
+
+<img width="536" height="251" alt="image" src="https://github.com/user-attachments/assets/59856a05-c1da-4fa6-b541-a804e297be2d" />
+
+###### Simulator
+
+<img width="536" height="392" alt="ckt for diff" src="https://github.com/user-attachments/assets/ce241155-9cb4-4db4-8790-c1ab1244e060" />
 
 ---
 
-#### Fig. 4 – Differentiator Circuit (LM741)
-
-> _[Insert circuit diagram of Op-Amp Differentiator here — C = 0.01 µF, Rf = 15 kΩ, ±12V supply]_
-
----
-
-#### Fig. 5 – Practical Differentiator Circuit
-
-> _[Insert practical differentiator circuit with R1 in series with C1 (input) and Cf in parallel with Rf, Rcomp = Rf || R1]_
-
----
 
 ### PROCEDURE
 
@@ -134,143 +110,35 @@ $$R_f = \frac{1}{2\pi \times 1000 \times 0.01 \times 10^{-6}} = 15.9 \, k\Omega 
 
 ### WAVEFORMS
 
-#### Fig. 3 – Integrator Output (Square wave input → Triangular wave output)
+####  Integrator Output (Square wave input → Triangular wave output)
 
-> _[Insert waveform sketch / screenshot here — Input: Square wave Vi; Output: Triangular wave Vo]_
+<img width="603" height="602" alt="square outputp for int" src="https://github.com/user-attachments/assets/d21d5d09-ff53-40f3-bc78-857a701134fc" />
 
----
+####  Integrator Output 
 
-#### Fig. 4 – Differentiator Output (Square wave input → Pulse/spike output)
-
-> _[Insert waveform sketch / screenshot here — Input: Square wave Vi; Output: Spike/impulse Vo]_
+<img width="602" height="603" alt="sine outputp for int" src="https://github.com/user-attachments/assets/13ae090c-e307-468d-aa5c-5f6235c35a57" />
 
 ---
 
-### DESIGN QUESTION
+####  Differentiator Output (Square wave input → Pulse/spike output)
 
-> _[Write the design question given by the instructor here]_
+<img width="603" height="605" alt="square outputp for diff" src="https://github.com/user-attachments/assets/9f9801aa-06a4-404f-b217-1cc6b920066d" />
 
-________________________________________________________________________
 
-________________________________________________________________________
+####  Differentiator Output 
 
-________________________________________________________________________
-
-________________________________________________________________________
-
-________________________________________________________________________
-
-________________________________________________________________________
-
-________________________________________________________________________
-
----
-
-### CALCULATIONS
-
-> _[Show step-by-step calculations for component values, peak output voltage VT, etc.]_
-
-**Integrator – Peak Output Voltage:**
-
-$$V_T = \frac{V \cdot T}{4RC}$$
-
-Given: V = 5 V, T = 1 ms (f = 1 kHz), R = 15 kΩ, C = 0.01 µF
-
-$$V_T = \frac{5 \times 1 \times 10^{-3}}{4 \times 15 \times 10^3 \times 0.01 \times 10^{-6}} = \frac{5 \times 10^{-3}}{600 \times 10^{-6}} \approx 8.33 \, V$$
-
-**Differentiator – Output Voltage (for triangular input):**
-
-$$|V_o| = R_f \cdot C \cdot \left|\frac{dV_i}{dt}\right|$$
-
-________________________________________________________________________
-
-________________________________________________________________________
-
-________________________________________________________________________
-
----
-
-### INPUT & OUTPUT WAVEFORMS (Graph Sheet)
-
-> _[Attach or draw input and output waveforms on graph sheet for all three input types: Square, Triangular, Sine — for both Integrator and Differentiator]_
-
-| Input Waveform | Integrator Output | Differentiator Output |
-|---|---|---|
-| Square Wave | Triangular Wave | Narrow Spikes / Impulses |
-| Triangular Wave | Parabolic Wave | Square Wave |
-| Sine Wave | Cosine Wave (inverted) | Cosine Wave |
-
----
-
-### ANALYSIS
-
-#### Frequency Response Analysis – Low Pass Filter (Integrator) & High Pass Filter (Differentiator)
-
-> _[Perform AC sweep / frequency response simulation in PSPICE and attach Bode plots here]_
-
-**LPF (Integrator) – Expected Bode Plot:**
-
-> _[Insert Bode plot (Magnitude vs. Frequency) showing –20 dB/decade roll-off above cutoff frequency fc = 1/(2πRC)]_
-
-Cutoff frequency:
-
-$$f_c = \frac{1}{2\pi R_1 C} = \frac{1}{2\pi \times 15 \times 10^3 \times 0.01 \times 10^{-6}} \approx 1.06 \, kHz$$
-
----
-
-**HPF (Differentiator) – Expected Bode Plot:**
-
-> _[Insert Bode plot (Magnitude vs. Frequency) showing +20 dB/decade roll-off below cutoff frequency]_
-
-Cutoff frequency:
-
-$$f_c = \frac{1}{2\pi R_f C} = \frac{1}{2\pi \times 15 \times 10^3 \times 0.01 \times 10^{-6}} \approx 1.06 \, kHz$$
-
----
-
-### RESULTS
-
-The integrator and differentiator circuits using µA741 Op-Amp were designed, set up, and their outputs were observed for various input waveforms.
-
-| Input | Integrator Output | Differentiator Output |
-|---|---|---|
-| Square wave (1 kHz, ±5V) | Triangular wave | Narrow pulses at transitions |
-| Triangular wave | Parabolic / Sinusoidal wave | Square wave |
-| Sine wave | Cosine wave (phase-shifted) | Cosine wave |
-
-________________________________________________________________________
-
-________________________________________________________________________
-
-________________________________________________________________________
-
-________________________________________________________________________
+<img width="606" height="602" alt="outputp for diff" src="https://github.com/user-attachments/assets/0f3f95c4-0070-41ce-8987-f8d628a73215" />
 
 ---
 
 ### INFERENCE
 
-The Op-Amp integrator circuit produces an output that is the mathematical integral of the input signal. A square wave input yields a triangular wave, confirming that the integral of a constant is a ramp. The Op-Amp differentiator produces the mathematical derivative of the input; a square wave input gives narrow impulse spikes at each edge, confirming differentiation of step transitions.
+The Op-Amp integrator circuit produces an output that is the mathematical integral of the input signal. A square wave input yields a triangular wave, confirming that the integral of a constant is a ramp. 
+The Op-Amp differentiator produces the mathematical derivative of the input; a square wave input gives narrow impulse spikes at each edge, confirming differentiation of step transitions.
 
-The integrator behaves as a **low-pass filter** with a –20 dB/decade roll-off above the unity-gain frequency. The differentiator behaves as a **high-pass filter** with a +20 dB/decade gain rise with frequency, making it inherently unstable and noise-sensitive at high frequencies. The practical differentiator with series resistance and shunt capacitance limits the high-frequency gain, improving stability.
 
-________________________________________________________________________
 
-________________________________________________________________________
-
-________________________________________________________________________
-
-________________________________________________________________________
 
 ---
 
-### VIRTUAL LAB REPORT
 
-> _(Bonus marks — attach virtual lab report from https://be-iitkgp.vlabs.ac.in/exp/operational-amplifier/theory.html)_
-
-> _[Attach virtual lab screenshots / PDF here]_
-
----
-
-*Lab in Charges: Dr. Remya Jayachandran, Dr. Yajunath K, Dr. Sujeeth Rai K*
-*The National Institute of Engineering, Mysuru — Department of ECE*
