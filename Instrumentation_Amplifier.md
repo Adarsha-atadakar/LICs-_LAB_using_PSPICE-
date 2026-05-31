@@ -25,9 +25,7 @@ TINA
 
 <img width="1122" height="587" alt="image" src="https://github.com/user-attachments/assets/37114d18-5e77-419b-85b6-fbef3dfa3adc" />
 
-### Design
 
-<!-- Insert design calculations here -->
 
 ### Simulation Results
 
@@ -45,9 +43,6 @@ TINA
 <img width="1122" height="593" alt="image" src="https://github.com/user-attachments/assets/9244063a-f6a9-47ca-9e13-c704fdf913f8" />
 
 
-### Design
-
-<!-- Insert design calculations here -->
 
 ### Simulation Results
 
@@ -65,9 +60,6 @@ TINA
 <img width="1122" height="552" alt="image" src="https://github.com/user-attachments/assets/93c216ff-a522-447e-bf86-5cb024fca5aa" />
 
 
-### Design
-
-<!-- Insert design calculations here -->
 
 ### Simulation Results
 
@@ -84,9 +76,7 @@ TINA
 <img width="1122" height="605" alt="image" src="https://github.com/user-attachments/assets/114dded7-c3e9-4497-ac13-d7aab1926cc2" />
 
 
-### Design
 
-<!-- Insert design calculations here -->
 
 ### Simulation Results
 
@@ -103,9 +93,6 @@ TINA
 <img width="1122" height="607" alt="image" src="https://github.com/user-attachments/assets/8390f78d-24cf-4ac2-9f20-e8d84b994764" />
 
 
-### Design
-
-<!-- Insert design calculations here -->
 
 ### Simulation Results
 
